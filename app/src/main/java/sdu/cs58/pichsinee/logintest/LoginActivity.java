@@ -1,5 +1,6 @@
 package sdu.cs58.pichsinee.logintest;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -42,6 +43,12 @@ public class LoginActivity extends AppCompatActivity {
                 //ตรวจสอบการ Login
                 if ((userString.equals("admin")) && (passString.equals("1234"))) {
                     Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
+
+                    //ส่งข้อมูล nameString ไปหน้า MainActivity
+                    Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
+                    mainIntent.putExtra("nameString", nameString);
+                    startActivity(mainIntent);
+
                 } else {
                     Toast.makeText(getApplicationContext(),"Login Fail!!!",Toast.LENGTH_SHORT).show();
                 }
