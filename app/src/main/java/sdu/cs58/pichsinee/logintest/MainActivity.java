@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         //รับค่า nameString จากหน้า Login
         getNameString = getIntent().getStringExtra("nameString");
-        nameTextView.setText("ยินดีต้อนรับ " + getNameString + " เข้าสู่ระบบ");
+        nameTextView.setText("ยินดีต้อนรับ " + getNameString + "  เข้าสู่ระบบ");
 
     }   //end onCreate
 
