@@ -9,10 +9,10 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
-    //1. Explicit ประกาศตัวแปรยน java
+    //1. Explicit ประกาศตัวแปรบน java
     EditText nameEditText,usernameEditText, passwordEditText;
     Button loginButton;
-    String nameString;
+    String nameString, userString, passString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +25,24 @@ public class LoginActivity extends AppCompatActivity {
         passwordEditText = findViewById(R.id.txtPassword);
         loginButton = findViewById(R.id.btnLogin);
 
+        //3. สั่งให้ปุ่มดักฟังว่าเมื่อ user คลิกที่ปุ่ม Login
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //ดึงข้อมูลที่ user ป้อนในหน้า UI มาเก็บในตัวแปรชนิด String
                 nameString = nameEditText.getText().toString().trim();
-                Toast.makeText(getApplicationContext(),"Hello " + nameString,Toast.LENGTH_SHORT).show();
+                userString = usernameEditText.getText().toString().trim();
+                passString = passwordEditText.getText().toString().trim();
+
+                //ตรวจสอบการ Login
+                if ((userString.equals("admin")) && (passString.equals("1234"))) {
+                    Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(),"Login Fail!!!",Toast.LENGTH_SHORT).show();
+                }
+                //Toast.makeText(getApplicationContext(),"Hello " + nameString,Toast.LENGTH_SHORT).show();
             }
-        });
+        }); //end OnClickListener
 
     } //end method onCreate
 } // end class
